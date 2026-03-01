@@ -32,7 +32,7 @@ The framework is structured to support future growth with minimal refactoring.
 
 ---
 
-## 🏗 Project Architecture
+## Project Architecture
 
 The project follows a clean and scalable structure:
 
@@ -148,7 +148,6 @@ This framework can be extended to:
 * Integrate API + UI testing
 * Run in CI pipelines (GitHub Actions, GitLab CI)
 * Add tagging strategies (e.g., smoke, regression)
-* Introduce data-driven testing patterns
 
 ---
 
