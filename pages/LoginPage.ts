@@ -10,11 +10,11 @@ export class LoginPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.usernameInput = page.locator('#username');
-    this.passwordInput = page.locator('#password');
-    this.loginButton = page.locator('button[type="submit"]');
+    this.usernameInput = page.getByRole('textbox', { name: 'Username' })
+    this.passwordInput = page.getByRole('textbox', { name: 'Password' })
+    this.loginButton = page.getByRole('button', { name: ' Login' })
     this.flashMessage = page.locator('#flash');
-    this.logoutButton = page.locator('.button.secondary.radius');
+    this.logoutButton = page.getByRole('link', { name: 'Logout' })
   }
 
   async navigate() {

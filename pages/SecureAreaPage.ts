@@ -8,8 +8,7 @@ export class SecureAreaPage {
   constructor(page: Page) {
     this.page = page;
     this.flashMessage = page.locator('#flash');
-    this.logoutButton = page.locator('.button.secondary.radius');
-    this.flashMessage = page.locator('#flash');
+    this.logoutButton = page.getByRole('link', { name: 'Logout' })
   }
 
   async logout() {
