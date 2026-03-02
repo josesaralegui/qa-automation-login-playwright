@@ -1,5 +1,5 @@
 import { test, expect } from '../fixtures/login.fixture';
-import { VALID_PASSWORD, VALID_USERNAME } from '../utils/constants';
+import { INVALID_PASSWORD_MESSAGE, INVALID_USERNAME_MESSAGE, SUCCESS_MESSAGE, VALID_PASSWORD, VALID_USERNAME } from '../utils/constants';
 
 test.describe('Login Feature', () => {
 
@@ -19,7 +19,7 @@ test.describe('Login Feature', () => {
     // UI validations
     await expect(page).toHaveURL('/secure');
     await expect(securePage.flashMessage)
-      .toContainText('You logged into a secure area!');
+      .toContainText(SUCCESS_MESSAGE);
     await expect(securePage.logoutButton)
       .toBeVisible();
   });
@@ -29,7 +29,7 @@ test.describe('Login Feature', () => {
     await loginPage.login('invalidUser', VALID_PASSWORD);
   
     await expect(loginPage.flashMessage)
-      .toContainText('Your username is invalid!');
+      .toContainText(INVALID_USERNAME_MESSAGE);
   });
 
   test('Login fails with invalid password', async ({ loginPage }) => {
@@ -37,15 +37,15 @@ test.describe('Login Feature', () => {
     await loginPage.login(VALID_USERNAME, 'wrongPassword');
   
     await expect(loginPage.flashMessage)
-      .toContainText('Your password is invalid!');
+      .toContainText(INVALID_PASSWORD_MESSAGE);
   });
 
-  test('Login fails with empty fields', async ({ loginPage }) => {
+  test('Login fails with empty fields and invalid username flash message is displayed', async ({ loginPage }) => {
   
     await loginPage.login('', '');
   
     await expect(loginPage.flashMessage)
-      .toBeVisible();
+      .toContainText(INVALID_USERNAME_MESSAGE);
   });
 
 });

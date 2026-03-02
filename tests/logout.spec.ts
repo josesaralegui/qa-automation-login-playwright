@@ -1,4 +1,5 @@
 import { test, expect } from '../fixtures/authenticated.fixture';
+import { SUCCESS_MESSAGE } from '../utils/constants';
 
 test.describe('Logout Feature', () => {
 
@@ -10,7 +11,7 @@ test.describe('Logout Feature', () => {
       .toHaveURL('/login');
 
     await expect(authenticatedPage.flashMessage)
-      .toContainText('You logged out of the secure area!');
+      .toContainText(SUCCESS_MESSAGE);
   });
 
 });
