@@ -1,5 +1,5 @@
 import { test, expect } from '../fixtures/login.fixture';
-import { INVALID_PASSWORD_MESSAGE, INVALID_USERNAME_MESSAGE, SUCCESS_MESSAGE, VALID_PASSWORD, VALID_USERNAME } from '../utils/constants';
+import { INVALID_PASSWORD_MESSAGE, INVALID_USERNAME_MESSAGE, SUCCESS_LOGIN_MESSAGE, VALID_PASSWORD, VALID_USERNAME } from '../utils/constants';
 
 test.describe('Login Feature', () => {
 
@@ -19,7 +19,7 @@ test.describe('Login Feature', () => {
     // UI validations
     await expect(page).toHaveURL('/secure');
     await expect(securePage.flashMessage)
-      .toContainText(SUCCESS_MESSAGE);
+      .toContainText(SUCCESS_LOGIN_MESSAGE);
     await expect(securePage.logoutButton)
       .toBeVisible();
   });
